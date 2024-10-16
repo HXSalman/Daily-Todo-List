@@ -231,6 +231,7 @@ export default function DailyTodoList() {
                   </p>
                   <ul className="list-disc list-inside mb-2 text-sm">
                     {task.description.map((subTask, index) => (
+                      <span className="font-semibold">Remarks:</span>
                       <li key={index} className="truncate">{subTask}</li>
                     ))}
                   </ul>
