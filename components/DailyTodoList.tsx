@@ -24,7 +24,7 @@ type Task = {
   startDate: string
   endDate?: string
   description: string[]
-  status: "Ongoing" | "Send for review" | "Final stage" | "Complete"
+  status: "Ongoing" | "Send for review" | "Final stage" | "Completed"
 }
 
 const getStatusColor = (status: Task["status"]) => {
@@ -32,7 +32,7 @@ const getStatusColor = (status: Task["status"]) => {
     case "Ongoing": return "bg-blue-100 border-blue-500 text-blue-700"
     case "Send for review": return "bg-yellow-100 border-yellow-500 text-yellow-700"
     case "Final stage": return "bg-purple-100 border-purple-500 text-purple-700"
-    case "Complete": return "bg-green-100 border-green-500 text-green-700"
+    case "Completed": return "bg-green-100 border-green-500 text-green-700"
     default: return "bg-gray-100 border-gray-500 text-gray-700"
   }
 }
@@ -99,7 +99,7 @@ export default function DailyTodoList() {
     return acc
   }, {} as Record<Task["status"], Task[]>)
 
-  const statusOrder: Task["status"][] = ["Ongoing", "Send for review", "Final stage", "Complete"]
+  const statusOrder: Task["status"][] = ["Ongoing", "Send for review", "Final stage", "Completed"]
 
   return (
     <div className="container mx-auto p-4 max-w-7xl min-h-screen flex flex-col" style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -168,18 +168,18 @@ export default function DailyTodoList() {
                 </Popover>
               </div>
               <div>
-                <Label>Description (Sub-tasks)</Label>
+                <Label>Remarks</Label>
                 {newTask.description.map((subTask, index) => (
                   <Input
                     key={index}
                     value={subTask}
                     onChange={(e) => handleUpdateSubTask(index, e.target.value)}
-                    placeholder={`Sub-task ${index + 1}`}
+                    placeholder={`Add remarks ${index + 1}`}
                     className="mt-2"
                   />
                 ))}
                 <Button type="button" onClick={handleAddSubTask} className="mt-2" variant="outline">
-                  Add Sub-task
+                  Add Remark
                 </Button>
               </div>
               <div>
@@ -195,7 +195,7 @@ export default function DailyTodoList() {
                     <SelectItem value="Ongoing">Ongoing</SelectItem>
                     <SelectItem value="Send for review">Send for review</SelectItem>
                     <SelectItem value="Final stage">Final stage</SelectItem>
-                    <SelectItem value="Complete">Complete</SelectItem>
+                    <SelectItem value="Completed">Completed</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -219,7 +219,7 @@ export default function DailyTodoList() {
                         <PencilIcon className="h-4 w-4" />
                       </Button>
                       <Button variant="ghost" size="icon" onClick={() => handleDeleteTask(task.id)}>
-                        <Trash2Icon className="h-4 w-4" />
+                        <Trash2Icon className="h-4 w-2" />
                       </Button>
                     </div>
                   </CardTitle>
