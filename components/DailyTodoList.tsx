@@ -219,7 +219,7 @@ export default function DailyTodoList() {
                         <PencilIcon className="h-4 w-4" />
                       </Button>
                       <Button variant="ghost" size="icon" onClick={() => handleDeleteTask(task.id)}>
-                        <Trash2Icon className="h-4 w-2" />
+                        <Trash2Icon className="h-4 w-4" />
                       </Button>
                     </div>
                   </CardTitle>
