@@ -1,3 +1,3 @@
-# Daily-Todo-List
+# Daily-Todo-List v2
 
-[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/HXSalman/Daily-Todo-List)
+Organize your tasks efficiently
